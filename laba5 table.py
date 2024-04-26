@@ -13,7 +13,7 @@ for i in range(n - length):
 G0 = []  # временная матрица
 for i in range(m):
     G0.append(np.roll(g, i))
-G = np.array(G0)  # порождающая матрица
+G = np.array(G0)  # порождающая матрица, заполняемая сдвигами порождающего многочлена
 codewords_table_headers = ["Информационное слово", "Кодовое слово"]
 codewords_table = []
 length = pow(2, m)
