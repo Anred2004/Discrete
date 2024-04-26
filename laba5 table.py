@@ -18,7 +18,7 @@ codewords_table_headers = ["Информационное слово", "Кодо�
 codewords_table = []
 length = pow(2, m)
 for i in range(0, length):
-    d = np.array([int(i) for i in np.binary_repr(i, m)])
+    d = np.array([int(i) for i in np.binary_repr(i, m)]) #преобразование бинарных строк в массив чисел
     codewords_table.append([''.join(map(str, d.tolist())), ''.join(map(str, np.mod(d.dot(G), 2)))])
 with open('output1.txt', 'w') as file:
     file.write("Разрешённые кодовые комбинации: ")
