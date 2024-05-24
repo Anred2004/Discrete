@@ -48,7 +48,15 @@ def is_connected(n, G):
         print("Граф связный")
     else:
         print("Граф несвязный")
+        
+def is_sparse(n, G):
+    num_edges = sum(len(adj_list) for adj_list in G)
+    max_edges = n * (n - 1) / 2  # Максимальное количество рёбер в полном графе
 
+    if num_edges < 0.5 * max_edges:
+        print("Граф разреженный")
+    else:
+        print("Граф не разреженный")
 
 # алгоритм поиска в ширину (BFS)
 def first(n, G):
