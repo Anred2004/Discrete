@@ -1,0 +1,30 @@
+def is_connected(n, G):
+    visited = [False] * n
+
+    def dfs(v):
+        visited[v] = True
+        for u in G[v]:
+            if not visited[u]:
+                dfs(u)
+
+    dfs(0)  # Начинаем обход с произвольной вершины
+
+    if all(visited):
+        print("Граф связный")
+    else:
+        print("Граф несвязный")
+
+# Вызов функции для проверки связности
+is_connected(n, G)
+Для проверки разряженности графа можно использовать следующий код:
+def is_sparse(n, G):
+    num_edges = sum(len(adj_list) for adj_list in G)
+    max_edges = n * (n - 1) / 2  # Максимальное количество рёбер в полном графе
+
+    if num_edges < 0.5 * max_edges:
+        print("Граф разреженный")
+    else:
+        print("Граф не разреженный")
+
+# Вызов функции для проверки разряженности
+is_sparse(n, G)
