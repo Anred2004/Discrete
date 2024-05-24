@@ -32,6 +32,24 @@ def generate(n):
             cnt += 1
     print("количество ребер", cnt)
     return G
+
+def is_connected(n, G):
+    visited = [False] * n
+
+    def dfs(v):
+        visited[v] = True
+        for u in G[v]:
+            if not visited[u]:
+                dfs(u)
+
+    dfs(0)  # Начинаем обход с произвольной вершины
+
+    if all(visited):
+        print("Граф связный")
+    else:
+        print("Граф несвязный")
+
+
 # алгоритм поиска в ширину (BFS)
 def first(n, G):
     iters = 0
